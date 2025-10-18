@@ -7,3 +7,5 @@ def build():
     print("build complete")
 
 build()
+
+print("hello world")
