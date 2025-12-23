@@ -1,0 +1,13 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: {{ include "project-2.fullname" . }}
+  labels:
+    release: prometheus # This label must match your Prometheus instance
+spec:
+  selector:
+    matchLabels:
+      {{- include "project-2.selectorLabels" . | nindent 6 }}
+  endpoints:
+  - port: http
+    path: /metrics
